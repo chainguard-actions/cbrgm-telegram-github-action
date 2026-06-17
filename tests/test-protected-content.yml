@@ -1,0 +1,22 @@
+name: Test protected content dry-run
+on:
+  workflow_dispatch:
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+      - name: Send protected message with no web preview in dry-run mode
+        id: action
+        uses: .
+        with:
+          token: "fake-token-for-dry-run"
+          to: "123456789"
+          message: "Check out https://example.com - this link won't preview"
+          protect-content: "true"
+          disable-web-page-preview: "true"
+          dry-run: "true"
+      - name: Assert action completed without error
+        run: |
+          echo "Action completed successfully with protect-content and disable-web-page-preview in dry-run mode"
+          echo "PASS"
