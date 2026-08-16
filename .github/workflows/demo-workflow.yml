@@ -1,0 +1,17 @@
+name: Send Telegram Message
+
+on:
+  workflow_dispatch:
+
+permissions: {}
+
+jobs:
+  notify:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Send Telegram Message
+        uses: cbrgm/telegram-github-action@8592a3a60f14ce3bdedcbc30f66cfd314892dfa3 # main
+        with:
+          token: ${{ secrets.TELEGRAM_TOKEN }}
+          to: ${{ secrets.TELEGRAM_CHAT_ID }}
+          message: "New commit pushed to repository"

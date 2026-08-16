@@ -1,0 +1,20 @@
+name: Test protect content and disable web page preview
+on:
+  workflow_dispatch:
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+      - id: action
+        uses: .
+        with:
+          token: "fake-token-for-dry-run"
+          to: "123456789"
+          message: "Check out https://github.com - protected content, no preview"
+          protect-content: "true"
+          disable-web-page-preview: "true"
+          dry-run: "true"
+      - name: Assert action completed with protect-content and disable-web-page-preview
+        run: |
+          echo "PASS: action completed in dry-run mode with protect-content=true and disable-web-page-preview=true"
