@@ -1,0 +1,23 @@
+name: Test optional parameters dry-run
+on:
+  workflow_dispatch:
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+      - name: Send Telegram message with optional params (dry-run)
+        id: action
+        uses: .
+        with:
+          token: "fake-token-for-dry-run"
+          to: "987654321"
+          message: "Silent protected message"
+          disable-notification: "true"
+          disable-web-page-preview: "true"
+          protect-content: "true"
+          dry-run: "true"
+      - name: Assert action completed successfully
+        run: |
+          echo "Action completed with optional params in dry-run mode without error"
+          echo "PASS"
