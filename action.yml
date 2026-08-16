@@ -38,7 +38,7 @@ inputs:
 
 runs:
   using: 'docker'
-  image: 'docker://ghcr.io/cbrgm/telegram-github-action@sha256:17c098d20332bd4db55d400f714be814a4017635a1cf236e647889e357306f3f' # v1
+  image: 'docker://ghcr.io/cbrgm/telegram-github-action:v1@sha256:ec8a3ae9a35f3d683b82cba7837a8cca8077631cf708197292c478279df3185c'
   args:
     - --token
     - ${{ inputs.token }}
