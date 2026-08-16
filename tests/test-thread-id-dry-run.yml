@@ -1,4 +1,4 @@
-name: Test basic dry-run usage
+name: Test thread-id input (dry-run)
 on:
   workflow_dispatch:
 jobs:
@@ -6,15 +6,14 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
-      - name: Run action in dry-run mode
-        id: action
+      - id: action
         uses: .
         with:
           token: "fake-token-for-dry-run"
           to: "123456789"
-          message: "Hello from GitHub Actions!"
+          thread-id: "42"
+          message: "Test message with thread-id"
           dry-run: "true"
-      - name: Assert action completed successfully
+      - name: Assert dry-run completed successfully
         run: |
-          echo "Action completed in dry-run mode"
-          echo "PASS: action ran without error"
+          echo "PASS: action completed with thread-id input in dry-run mode"
