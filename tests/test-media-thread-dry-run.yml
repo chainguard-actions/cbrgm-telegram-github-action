@@ -9,7 +9,7 @@ jobs:
       - id: action
         uses: .
         with:
-          token: "fake-token-for-dry-run"
+          token: "fake-token-dry-run"
           to: "123456789"
           thread-id: "42"
           message: "Test message with media and thread"
