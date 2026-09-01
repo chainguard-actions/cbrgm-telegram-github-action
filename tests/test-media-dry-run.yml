@@ -1,0 +1,21 @@
+name: Test media sending in dry-run mode
+on:
+  workflow_dispatch:
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+      - id: action
+        uses: .
+        with:
+          token: "fake-token-dry-run"
+          to: "123456789"
+          message: "Photo caption in dry-run mode"
+          media: "https://example.com/photo.jpg"
+          media-type: "photo"
+          dry-run: "true"
+      - name: Assert action completed successfully with media
+        run: |
+          echo "Action completed in dry-run mode with media"
+          echo "PASS: dry-run with media type succeeded"
