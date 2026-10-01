@@ -16,6 +16,7 @@ Hardened by [Chainguard](https://www.chainguard.dev) from the upstream action at
 | v1.4.2 | [`v1.4.2`](https://github.com/chainguard-actions/cbrgm-telegram-github-action/tree/v1.4.2) | [`aed22a1`](https://github.com/cbrgm/telegram-github-action/commit/aed22a1c698148cda3cc6fa8b344a0f45da4af35) |
 | v1.4.3 | [`v1.4.3`](https://github.com/chainguard-actions/cbrgm-telegram-github-action/tree/v1.4.3) | [`2417d98`](https://github.com/cbrgm/telegram-github-action/commit/2417d98b3a6d0237d18b92235720bbea95a9f245) |
 | v1.4.4 | [`v1.4.4`](https://github.com/chainguard-actions/cbrgm-telegram-github-action/tree/v1.4.4) | [`4fc20be`](https://github.com/cbrgm/telegram-github-action/commit/4fc20be04323c81a446e466424e81d24dca6626a) |
+| v1.4.5 | [`v1.4.5`](https://github.com/chainguard-actions/cbrgm-telegram-github-action/tree/v1.4.5) | [`9e589b1`](https://github.com/cbrgm/telegram-github-action/commit/9e589b1c6c058c2db611e16e589bc646921f1618) |
 
 ## Privacy
 
