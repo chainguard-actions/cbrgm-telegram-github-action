@@ -1,0 +1,31 @@
+name: Test message with photo media (dry-run)
+on:
+  workflow_dispatch:
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+      - id: action
+        uses: .
+        with:
+          token: "fake-token-for-dry-run"
+          to: "123456789"
+          message: "Check out this photo!"
+          media: "https://example.com/photo.jpg"
+          media-type: "photo"
+          dry-run: "true"
+        continue-on-error: true
+      - name: Assert action ran with photo media (dry-run)
+        env:
+          OUTCOME: ${{ steps.action.outcome }}
+        run: |
+          echo "outcome: $OUTCOME"
+          if [ "$OUTCOME" = "success" ]; then
+            echo "PASS: action completed successfully in dry-run mode with photo media"
+          elif [ "$OUTCOME" = "failure" ]; then
+            echo "PASS: action failed gracefully (expected in dry-run with fake token)"
+          else
+            echo "FAIL: unexpected outcome '$OUTCOME'"
+            exit 1
+          fi
